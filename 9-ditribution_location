@@ -1,0 +1,20 @@
+-- Calculate the overall mean and standard deviation of LLINs distributed
+WITH statistics AS (
+    SELECT 
+        AVG(llins_distributed) AS mean_llins,
+        STDDEV_POP(llins_distributed) AS stddev_llins
+    FROM 
+        distributions
+)
+
+-- Calculate the mean and standard deviation for each year
+WITH yearly_statistics AS (
+    SELECT 
+        EXTRACT(YEAR FROM distribution_date) AS year,
+        AVG(llins_distributed) AS mean_llins,
+        STDDEV_POP(llins_distributed) AS stddev_llins
+    FROM 
+        distributions
+    GROUP BY 
+        year
+)

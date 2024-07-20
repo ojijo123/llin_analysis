@@ -1,0 +1,45 @@
+-- SQL script to find the locations with the highest and lowest number of LLINs distributed
+-- and to determine if there's a significant difference in the number of LLINs distributed by different organizations.
+
+-- Find the location with the highest number of LLINs distributed
+SELECT 
+    location,
+    SUM(llins_distributed) AS total_llins_distributed
+FROM 
+    distributions
+GROUP BY 
+    location
+ORDER BY 
+    total_llins_distributed DESC
+LIMIT 1;
+
+-- Find the location with the lowest number of LLINs distributed
+SELECT 
+    location,
+    SUM(llins_distributed) AS total_llins_distributed
+FROM 
+    distributions
+GROUP BY 
+    location
+ORDER BY 
+    total_llins_distributed ASC
+LIMIT 1;
+
+-- Calculate the total number of LLINs distributed by each organization
+SELECT 
+    organization,
+    SUM(llins_distributed) AS total_llins_distributed
+FROM 
+    distributions
+GROUP BY 
+    organization;
+
+-- To determine if there's a significant difference, statistical analysis would typically be conducted out
+SELECT 
+    organization,
+    SUM(llins_distributed) AS total_llins_distributed,
+    STDDEV_POP(llins_distributed) AS stddev_llins_distributed
+FROM 
+    distributions
+GROUP BY 
+    organization;

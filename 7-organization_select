@@ -1,0 +1,11 @@
+-- SQL script to display the total number of LLINs distributed by each organization
+-- and to calculate the total number of LLINs distributed in each year.
+
+-- Calculate the total number of LLINs distributed by each organization
+SELECT 
+    by_whom,
+    SUM(by_whom) AS total_llins_distributed
+FROM 
+    distributions
+GROUP BY 
+    organization;

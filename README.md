@@ -1,0 +1,1 @@
+You are a data analyst working for a global health organization. Your task is to analyze the distribution of Long-Lasting Insecticidal Nets (LLINs) across various locations in multiple countries. The goal is to understand the distribution patterns, identify trends, and gain insights into the effectiveness of different distribution campaigns.

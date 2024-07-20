@@ -1,0 +1,5 @@
+-- Calculate the average number of number distributed per event
+SELECT 
+    AVG(number_distributed) AS average_number_per_event
+FROM 
+    distributions;

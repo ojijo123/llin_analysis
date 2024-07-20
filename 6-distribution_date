@@ -1,0 +1,10 @@
+SELECT 
+    MIN(distribution_date) AS earliest_number_distribution_date
+FROM 
+    distributions;
+
+-- Find the latest distribution date
+SELECT 
+    MAX(number_distribution_date) AS latest_distribution_date
+FROM 
+    distributions;
